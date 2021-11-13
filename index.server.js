@@ -9,7 +9,7 @@ const eventRoutes = require('./src/routes/events');
 const donatorRoutes = require('./src/routes/donator');
 const volunteerRoutes = require('./src/routes/volunteer');
 
-app.get('/simple', (req, res) => {
+app.get('/', (req, res) => {
 	res.send('<h1>hello world!</h1>');
 });
 
