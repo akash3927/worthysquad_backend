@@ -9,6 +9,10 @@ const eventRoutes = require('./src/routes/events');
 const donatorRoutes = require('./src/routes/donator');
 const volunteerRoutes = require('./src/routes/volunteer');
 
+app.get('/simple', (req, res) => {
+	res.send('<h1>hello world!</h1>');
+});
+
 app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use('/api', userRoutes);
