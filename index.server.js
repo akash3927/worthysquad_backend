@@ -13,7 +13,11 @@ const volunteerRoutes = require('./src/routes/volunteer');
 app.get('/', (req, res) => {
 	res.send('<h1>hello world!</h1>');
 });
-app.use(cors());
+app.use(
+	cors({
+		origin: 'http://localhost:3000/',
+	}),
+);
 app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use('/api', userRoutes);
@@ -25,7 +29,7 @@ app.listen(process.env.PORT, () => {
 	console.log(`app is running on ${process.env.PORT}`);
 });
 
-// //{
+// {
 // 	cors: {
 // 		origin: '*',
-// 	},
+// },
