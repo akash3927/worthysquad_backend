@@ -24,3 +24,8 @@ app.use('/api', volunteerRoutes);
 app.listen(process.env.PORT, () => {
 	console.log(`app is running on ${process.env.PORT}`);
 });
+
+// //{
+// 	cors: {
+// 		origin: '*',
+// 	},
