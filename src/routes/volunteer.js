@@ -33,6 +33,22 @@ router.get('/getVolunteer/:email', async (req, res) => {
 	}
 });
 
-router.patch('/updateVolunteer/:email', (req, res) => {});
-
+router.patch('/updateVolunteer/:email', async (req, res) => {
+	try {
+		const email = req.params.email;
+		const getVolunteer = await Volunteer.findOneAndUpdate(email, req.body);
+		res.send(getVolunteer);
+	} catch (error) {
+		res.status(500).send(error);
+	}
+});
+router.delete('/deleteVolunteer/:email', async (req, res) => {
+	try {
+		const email = req.params.email;
+		const deleteVolunteer = await Volunteer.findOneAndDelete(req.params.email);
+		res.send(deleteVolunteer);
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});
 module.exports = router;
