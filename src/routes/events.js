@@ -27,8 +27,16 @@ router.get('/getEvent/:id', async (req, res) => {
 	res.status(200).json(getEvent);
 });
 
-router.put('/', async (req, res) => {});
+router.put('/updateEvent/:id', async (req, res) => {
+	const _id = req.params.id;
+	const updateEvent = await Event.findByIdAndUpdate(_id, req.body);
+	res.status(200).json(updateEvent);
+});
 
-router.delete('/', async (req, res) => {});
+router.delete('/deleteEvent/:id', async (req, res) => {
+	const _id = req.params.id;
+	const deleteEvent = await Event.findByIdAndDelete(_id);
+	res.status(200).json(deleteEvent);
+});
 
 module.exports = router;

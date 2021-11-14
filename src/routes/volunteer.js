@@ -42,6 +42,7 @@ router.patch('/updateVolunteer/:email', async (req, res) => {
 		res.status(500).send(error);
 	}
 });
+
 router.delete('/deleteVolunteer/:email', async (req, res) => {
 	try {
 		const email = req.params.email;
