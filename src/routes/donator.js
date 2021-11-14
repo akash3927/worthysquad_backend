@@ -33,6 +33,24 @@ router.get('/getDonator/:email', async (req, res) => {
 	}
 });
 
-router.patch('/updatedonator/:email', (req, res) => {});
+router.patch('/updateDonator/:email', async (req, res) => {
+	try {
+		const email = req.params.email;
+		const getDonator = await Donator.findOneAndUpdate(email, req.body);
+		res.send(getDonator);
+	} catch (error) {
+		res.status(500).json(error);
+	}
+});
+
+router.delete('/deleteDonator/:email', async (req, res) => {
+	try {
+		const email = req.params.email;
+		const deleteDonator = await Donator.findOneAndDelete(req.params.email);
+		res.send(deleteDonator);
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});
 
 module.exports = router;
