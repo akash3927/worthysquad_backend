@@ -13,11 +13,7 @@ const volunteerRoutes = require('./src/routes/volunteer');
 app.get('/', (req, res) => {
 	res.send('<h1>hello world!</h1>');
 });
-app.use(
-	cors({
-		origin: 'http://localhost:3000/',
-	}),
-);
+app.use(cors);
 app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use('/api', userRoutes);
