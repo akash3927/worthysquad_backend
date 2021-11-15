@@ -12,7 +12,7 @@ exports.signup = (req, res) => {
 			});
 		}
 	});
-
+	// console.log('hello');
 	const { firstName, lastName, email, password } = req.body;
 	const _user = new User({
 		firstName,
@@ -27,7 +27,7 @@ exports.signup = (req, res) => {
 				message: 'something went wrong',
 			});
 		}
-
+		// console.log(data);
 		if (data) {
 			return res.status(201).json({
 				message: 'user created succesfully',

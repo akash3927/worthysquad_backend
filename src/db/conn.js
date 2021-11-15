@@ -17,3 +17,6 @@ mongoose
 	.catch((err) => {
 		console.error(err);
 	});
+
+//mongodb+srv://akash:${process.env.MONGO_DB_PASSWORD}@worthysquad.il4an.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority
+//mongodb://localhost:27017/worthysquad
