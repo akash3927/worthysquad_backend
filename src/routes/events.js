@@ -21,6 +21,15 @@ const upload = multer({ storage: storage });
 
 router.post('/addevent', upload.single('eventPicture'), createEvent);
 
+router.get('/getevents', async (req, res) => {
+	try {
+		const getEvents = await Event.find({});
+		res.status(200).json(getEvents);
+	} catch (error) {
+		res.status(400).json(error);
+	}
+});
+
 router.get('/getEvent/:id', async (req, res) => {
 	const _id = req.params.id;
 	const getEvent = await Event.findById(_id);
