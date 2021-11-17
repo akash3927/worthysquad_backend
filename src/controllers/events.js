@@ -13,7 +13,7 @@ exports.createEvent = async (req, res) => {
 			eventTitle: req.body.eventTitle,
 			description: req.body.description,
 			eventPicture: eventPicture.path,
-			category: 'education',
+			category: req.body.category,
 			address: req.body.address,
 		});
 		const savedEvent = await addEvent.save();

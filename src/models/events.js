@@ -20,7 +20,14 @@ const eventSchema = new mongoose.Schema(
 		},
 		category: {
 			type: String,
-			enum: ['education', 'medical'],
+			enum: [
+				'Women And Children',
+				'Medical',
+				'Food And Hunger',
+				'Education',
+				'Animals',
+				'Enviorment',
+			],
 		},
 		address: {
 			type: String,
